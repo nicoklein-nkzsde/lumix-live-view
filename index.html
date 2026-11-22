@@ -62,7 +62,7 @@
 
 <div id="msg">
   <h1>Lumix Live View</h1>
-  <p>Kamera per USB-C an das iPad anschließen, an der Kamera den USB-Modus auf Streaming (UVC) stellen, dann unten auf „Starten“ tippen.</p>
+  <p>Kamera per USB-C an das iPad anschließen (Videomodus, USB-Modus an der Kamera ausprobieren: Webcam/UVC, sonst Tether), dann unten auf „Starten“ tippen. Klappt kein USB-Modus: HDMI-Capture-Karte nutzen.</p>
 </div>
 
 <div id="info" class="hidden"></div>
@@ -161,7 +161,7 @@ function showInfo() {
 function showError(e) {
   let t = 'Kamera konnte nicht gestartet werden.';
   if (e.name === 'NotAllowedError') t = 'Kamerazugriff verweigert. Erlaube ihn in Einstellungen → Safari → Kamera.';
-  else if (e.name === 'NotFoundError') t = 'Keine Kamera gefunden. Prüfe das USB-Kabel und den USB-Modus (Streaming/UVC) an der Lumix.';
+  else if (e.name === 'NotFoundError') t = 'Keine Kamera gefunden. Prüfe das USB-Kabel und den USB-Modus an der Lumix (Webcam/UVC oder Tether).';
   else if (e.name === 'OverconstrainedError') t = 'Diese Auflösung/Bildrate geht nicht. Wähle eine kleinere.';
   msg.innerHTML = `<h1>Fehler</h1><p>${t}</p>`;
   msg.classList.remove('hidden');
